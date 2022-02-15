@@ -7,7 +7,7 @@ services:
         DISTRO_VERSION: 8
         NODE_VERSION: 10
       dockerfile: Dockerfile
-    image: ghcr.io/katarti/nodejs:10
+    image:  acornsaustralia/nodejs:10
 
   node12:
     build:
@@ -16,7 +16,7 @@ services:
         DISTRO_VERSION: 8
         NODE_VERSION: 12
       dockerfile: Dockerfile
-    image: ghcr.io/katarti/nodejs:12
+    image:  acornsaustralia/nodejs:12
 
   node14:
     build:
@@ -25,4 +25,4 @@ services:
         DISTRO_VERSION: 8
         NODE_VERSION: 14
       dockerfile: Dockerfile
-    image: ghcr.io/katarti/nodejs:14
+    image:  acornsaustralia/nodejs:14
