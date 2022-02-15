@@ -39,7 +39,7 @@ jobs:
         run: docker-compose -f docker-compose.yml push node${{ matrix.node }}
 
       - name: Tag build-versioned image
-        run: docker tag acornsaustralia/nodejs:${{ matrix.node }} acornsaustralia/nodejs:${{ matrix.node }}-${{ github.run_number }}
+        run: docker tag acornsaustralia/node:${{ matrix.node }} acornsaustralia/node:${{ matrix.node }}-${{ github.run_number }}
 
       - name: Push versioned image
-        run: docker push acornsaustralia/nodejs:${{ matrix.node }}-${{ github.run_number }}
+        run: docker push acornsaustralia/node:${{ matrix.node }}-${{ github.run_number }}
