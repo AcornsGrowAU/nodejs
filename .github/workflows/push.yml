@@ -42,12 +42,11 @@ jobs:
       - name: Log into registry
         # This is where you will update the PAT to GITHUB_TOKEN
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login https://index.docker.io/v1/ -u ${{ secrets.DOCKER_USER }} --password-stdin
-
-      - name: Push image
-        run: docker-compose -f docker-compose.yml push node${{ matrix.node }}
-
+      
       - name: Tag build-versioned image
         run: docker tag acornsaustralia/node:${{ matrix.node }} acornsaustralia/node:${{ matrix.node }}-${{ github.run_number }}
 
-      - name: Push versioned image
-        run: docker push acornsaustralia/node:${{ matrix.node }}-${{ github.run_number }}
+      - name: Push image
+        run: | 
+          docker-compose -f docker-compose.yml push node${{ matrix.node }}
+          docker push acornsaustralia/node:${{ matrix.node }}-${{ github.run_number }}
