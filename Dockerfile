@@ -9,7 +9,7 @@ ENV npm_config_unsafe_perm true
 
 RUN microdnf install -y fedora-repos-modular.noarch && \
   microdnf module enable -y nodejs:${NODE_VERSION} && \
-  microdnf update -y && \
+  microdnf --nodocs update -y && \
   microdnf --nodocs -y install \
   autoconf \
   automake \
