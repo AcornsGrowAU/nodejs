@@ -1,19 +1,9 @@
 version: '3.7'
 services:
-  node10:
-    build:
-      context: .
-      args:
-        DISTRO_VERSION: 8
-        NODE_VERSION: 10
-      dockerfile: Dockerfile
-    image: acornsaustralia/node:10
-
   node12:
     build:
       context: .
       args:
-        DISTRO_VERSION: 8
         NODE_VERSION: 12
       dockerfile: Dockerfile
     image: acornsaustralia/node:12
@@ -22,7 +12,14 @@ services:
     build:
       context: .
       args:
-        DISTRO_VERSION: 8
         NODE_VERSION: 14
       dockerfile: Dockerfile
     image: acornsaustralia/node:14
+
+  node16:
+    build:
+      context: .
+      args:
+        NODE_VERSION: 16
+      dockerfile: Dockerfile
+    image: acornsaustralia/node:16

@@ -1,13 +1,13 @@
-FROM registry.fedoraproject.org/fedora-minimal:34
+FROM registry.fedoraproject.org/fedora-minimal:35
 
 SHELL ["/bin/bash", "-l", "-c"]
 
-ARG NODE_VERSION=12
+ARG NODE_VERSION=16
 
 ENV npm_config_loglevel warn
 ENV npm_config_unsafe_perm true
 
-RUN microdnf install -y fedora-repos-modular-34-2.noarch && \
+RUN microdnf install -y fedora-repos-modular.noarch && \
   microdnf module enable -y nodejs:${NODE_VERSION} && \
   microdnf update -y && \
   microdnf --nodocs -y install \
