@@ -1,25 +1,15 @@
 version: '3.7'
 services:
-  node12:
-    build:
-      context: .
-      args:
-        NODE_VERSION: 12
-      dockerfile: Dockerfile
-    image: acornsaustralia/node:12
-
   node14:
     build:
       context: .
       args:
         NODE_VERSION: 14
-      dockerfile: Dockerfile
-    image: acornsaustralia/node:14
+    image: nodejs:14
 
   node16:
     build:
       context: .
       args:
         NODE_VERSION: 16
-      dockerfile: Dockerfile
-    image: acornsaustralia/node:16
+    image: nodejs:16
