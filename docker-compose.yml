@@ -1,12 +1,5 @@
 version: '3.7'
 services:
-  node14:
-    build:
-      context: .
-      args:
-        NODE_VERSION: 14
-    image: nodejs:14
-
   node16:
     build:
       context: .

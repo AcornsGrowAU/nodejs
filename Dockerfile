@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora-minimal:36
+FROM registry.fedoraproject.org/fedora-minimal:39
 
 SHELL ["/bin/bash", "-l", "-c"]
 
@@ -8,8 +8,7 @@ ENV npm_config_loglevel warn
 ENV npm_config_unsafe_perm true
 
 RUN microdnf --nodocs -y upgrade && \
-    microdnf --nodocs -y install fedora-repos-modular && \
-    microdnf module enable -y nodejs:${NODE_VERSION} && \
+    microdnf --nodocs -y install https://rpm.nodesource.com/pub_${NODE_VERSION}.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm && \
     microdnf --nodocs -y install \
     autoconf \
     automake \
@@ -26,6 +25,6 @@ RUN microdnf --nodocs -y upgrade && \
     nodejs \
     postgresql \
     which && \
-    microdnf --nodocs reinstall -y tzdata && \
+    microdnf --nodocs install -y tzdata && \
     microdnf clean all && \
     rm -rf /var/cache/*
