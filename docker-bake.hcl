@@ -1,4 +1,6 @@
-variable "GITHUB_RUN_NUMBER" {}
+variable "GITHUB_RUN_NUMBER" {
+  default = null
+}
 
 group "default" {
   targets = [
@@ -18,7 +20,7 @@ target "nodejs" {
   pull   = true
   tags = [
     "acornsaustralia/node:${node_version}",
-    "acornsaustralia/node:${node_version}-${GITHUB_RUN_NUMBER}"
+    GITHUB_RUN_NUMBER != null ? "acornsaustralia/node:${node_version}-${GITHUB_RUN_NUMBER}" : ""
   ]
   platforms = [
     "linux/amd64"
