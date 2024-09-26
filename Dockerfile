@@ -1,5 +1,5 @@
 ARG ROCKY_VERSION
-FROM rockylinux:${ROCKY_VERSION}-minimal
+FROM rockylinux:${ROCKY_VERSION}-minimal AS base
 
 ARG NODE_VERSION
 
@@ -40,3 +40,7 @@ RUN microdnf --nodocs -y upgrade && \
     microdnf --nodocs install -y tzdata && \
     microdnf clean all && \
     rm -rf /var/cache/*
+
+FROM base AS pnpm
+
+RUN npm install -g pnpm
