@@ -9,18 +9,23 @@ group "default" {
 }
 
 target "nodejs" {
-  name = "nodejs-${node_version}"
+  name = "nodejs-${tgt}-${node_version}"
   matrix = {
     node_version = [
       "18",
       "20",
     ]
+    tgt = [
+      "base",
+      "pnpm"
+    ]
   }
 
+  target = tgt
   pull   = true
   tags = [
-    "acornsaustralia/node:${node_version}",
-    GITHUB_RUN_NUMBER != null ? "acornsaustralia/node:${node_version}-${GITHUB_RUN_NUMBER}" : ""
+    "acornsaustralia/node:${tgt}-${node_version}",
+    GITHUB_RUN_NUMBER != null ? "acornsaustralia/node:${node_version}-${tgt}-${GITHUB_RUN_NUMBER}" : ""
   ]
   platforms = [
     "linux/amd64"
