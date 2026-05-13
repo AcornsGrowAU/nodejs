@@ -37,7 +37,8 @@ RUN microdnf --nodocs -y upgrade && \
     which && \
     microdnf --nodocs install -y tzdata && \
     microdnf clean all && \
-    rm -rf /var/cache/*
+    rm -rf /var/cache/* && \
+    npm install -g npm@latest
 
 FROM base AS pnpm
 
