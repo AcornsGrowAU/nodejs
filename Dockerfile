@@ -3,8 +3,6 @@ FROM rockylinux:${ROCKY_VERSION}-minimal AS base
 
 ARG NODE_VERSION
 
-SHELL ["/bin/bash", "-l", "-c"]
-
 ENV npm_config_loglevel=warn npm_config_unsafe_perm=true
 
 # COPY can be replaced with `rpm -i https://rpm.nodesource.com/pub_${NODE_VERSION}.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm`
