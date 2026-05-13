@@ -1,9 +1,7 @@
-ARG ROCKY_VERSION
+ARG ROCKY_VERSION=9
 FROM rockylinux:${ROCKY_VERSION}-minimal AS base
 
 ARG NODE_VERSION
-
-SHELL ["/bin/bash", "-l", "-c"]
 
 ENV npm_config_loglevel=warn npm_config_unsafe_perm=true
 

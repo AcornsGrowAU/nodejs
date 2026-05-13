@@ -14,6 +14,7 @@ target "nodejs" {
     node_version = [
       "18",
       "20",
+      "22",
     ]
     tgt = [
       "base",
@@ -28,7 +29,8 @@ target "nodejs" {
     GITHUB_RUN_NUMBER != null ? "acornsaustralia/node:${node_version}-${tgt}-${GITHUB_RUN_NUMBER}" : ""
   ]
   platforms = [
-    "linux/amd64"
+    "linux/amd64",
+    "linux/arm64"
   ]
   args = {
     "ROCKY_VERSION"    = "9"

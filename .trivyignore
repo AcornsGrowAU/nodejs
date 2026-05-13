@@ -1,0 +1,21 @@
+# All HIGH CVEs below live in /usr/lib/node_modules/npm/node_modules/* — npm's
+# *own* vendored libraries shipped by the nodesource nodejs RPM. They fire only
+# when npm itself processes attacker-controlled input at build time (poisoned
+# tarball from a registry, malicious glob pattern from CLI). Application code
+# at runtime is unaffected.
+#
+# Acceptance: the registry's package-signing model + our trusted CI is the real
+# defense for those vectors. Refresh when nodesource bumps its npm bundle —
+# image is rebuilt weekly via the Sunday cron.
+
+CVE-2024-21538  # cross-spawn 7.0.3 — RegExp DoS (npm-internal callers only)
+CVE-2025-64756  # glob 10.4.2 — command injection via crafted pattern
+CVE-2026-26996  # minimatch 9.0.5 — DoS via crafted pattern
+CVE-2026-27903  # minimatch 9.0.5 — DoS via unbounded recursion
+CVE-2026-27904  # minimatch 9.0.5 — DoS via catastrophic backtracking
+CVE-2026-23745  # node-tar 6.2.1 — arbitrary file overwrite on extract
+CVE-2026-23950  # node-tar 6.2.1 — arbitrary file overwrite on extract
+CVE-2026-24842  # node-tar 6.2.1 — arbitrary file creation via path traversal
+CVE-2026-26960  # node-tar 6.2.1 — arbitrary file r/w via malicious archive
+CVE-2026-29786  # node-tar 6.2.1 — hardlink path traversal (drive-relative)
+CVE-2026-31802  # node-tar 6.2.1 — file overwrite via drive-relative symlink
