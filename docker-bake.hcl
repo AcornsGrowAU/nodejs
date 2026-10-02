@@ -12,9 +12,9 @@ target "nodejs" {
   name = "nodejs-${tgt}-${node_version}"
   matrix = {
     node_version = [
-      "18",
       "20",
       "22",
+      "24",
     ]
     tgt = [
       "base",
