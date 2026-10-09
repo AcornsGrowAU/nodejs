@@ -15,6 +15,7 @@ target "nodejs" {
       "20",
       "22",
       "24",
+      "26"
     ]
     tgt = [
       "base",
@@ -33,7 +34,7 @@ target "nodejs" {
     "linux/arm64"
   ]
   args = {
-    "ROCKY_VERSION"    = "9"
+    "ROCKY_VERSION"    = "10"
     "NODE_VERSION"     = "${node_version}"
   }
 }
