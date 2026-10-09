@@ -1,4 +1,4 @@
-ARG ROCKY_VERSION=9
+ARG ROCKY_VERSION=10
 FROM  rockylinux/rockylinux:${ROCKY_VERSION}-minimal AS base
 
 ARG NODE_VERSION
